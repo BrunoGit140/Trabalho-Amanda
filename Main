@@ -1,0 +1,136 @@
+Questão 1 - 
+
+def tabuada():
+    numero = int(input("Informe um número entre 1 e 10: "))
+    if 1 <= numero <= 10:
+        print(f"Tabuada de {numero}:")
+        for i in range(1, 11):
+            print(f"{numero} X {i} = {numero * i}")
+    else:
+        print("Número fora do intervalo. Por favor, informe um número entre 1 e 10.")
+
+tabuada()
+
+
+Questão 2 -
+
+def contar_pares_impares():
+    pares = 0
+    impares = 0
+    for _ in range(10):
+        numero = int(input("Digite um número inteiro: "))
+        if numero % 2 == 0:
+            pares += 1
+        else:
+            impares += 1
+    print(f"Números pares: {pares}")
+    print(f"Números ímpares: {impares}")
+
+contar_pares_impares()
+
+Questão 3 -
+
+def eh_primo():
+    numero = int(input("Digite um número inteiro: "))
+    if numero < 2:
+        print(f"{numero} não é um número primo.")
+        return
+    for i in range(2, int(numero ** 0.5) + 1):
+        if numero % i == 0:
+            print(f"{numero} não é um número primo.")
+            return
+    print(f"{numero} é um número primo.")
+
+eh_primo()
+
+Questão 4 -
+
+def crescimento_populacional():
+    populacao_A = 80000
+    populacao_B = 200000
+    taxa_A = 0.03
+    taxa_B = 0.015
+    anos = 0
+    
+    while populacao_A < populacao_B:
+        populacao_A += populacao_A * taxa_A
+        populacao_B += populacao_B * taxa_B
+        anos += 1
+        
+    print(f"Serão necessários {anos} anos para que a população do país A ultrapasse ou iguale a do país B.")
+
+crescimento_populacional()
+
+Questão 5 -
+
+def tabela_precos():
+    print("Lojas Quase Dois - Tabela de preços")
+    for i in range(1, 51):
+        preco = i * 1.99
+        print(f"{i} - R$ {preco:.2f}")
+
+tabela_precos()
+
+Questão 6 -
+
+def calcular_salario():
+    salario = 1000.00
+    ano_atual = 2025
+
+    for ano in range(1996, ano_atual + 1):
+        if ano == 1996:
+            aumento = 1.5 / 100
+        else:
+            aumento *= 2  # O aumento é o dobro do ano anterior
+        salario += salario * aumento
+
+    print(f"Salário em 2025: R$ {salario:.2f}")
+
+calcular_salario()
+
+Questão 7 -
+
+def tabela_dividas():
+    divida = float(input("Informe o valor da dívida: R$ "))
+    parcelas = [1, 3, 6, 9, 12]
+    juros = [0, 10, 15, 20, 25]
+
+    print("| Dívida       | Juros | Quantidade de Parcelas | Valor da Parcela |")
+    for i in range(len(parcelas)):
+        valor_juros = (divida * juros[i]) / 100
+        valor_total = divida + valor_juros
+        valor_parcela = valor_total / parcelas[i]
+        print(f"| R$ {valor_total:.2f} | R$ {valor_juros:.2f} | {parcelas[i]} | R$ {valor_parcela:.2f} |")
+
+tabela_dividas()
+
+Questão 8 -
+
+def verificar_notas():
+    gabarito = ['A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B']
+    alunos = []
+    
+    while True:
+        acertos = 0
+        for i in range(10):
+            resposta = input(f"Digite sua resposta para a questão {i + 1} (A, B, C, D): ").strip().upper()
+            if resposta == gabarito[i]:
+                acertos += 1
+        
+        alunos.append(acertos)
+        
+        continuar = input("Outro aluno vai utilizar o sistema? (s/n): ").strip().lower()
+        if continuar != 's':
+            break
+
+    maior_acerto = max(alunos)
+    menor_acerto = min(alunos)
+    total_alunos = len(alunos)
+    media_notas = sum(alunos) / total_alunos if total_alunos > 0 else 0
+
+    print(f"Maior Acerto: {maior_acerto}")
+    print(f"Menor Acerto: {menor_acerto}")
+    print(f"Total de Alunos: {total_alunos}")
+    print(f"Média das Notas: {media_notas:.2f}")
+
+verificar_notas()
